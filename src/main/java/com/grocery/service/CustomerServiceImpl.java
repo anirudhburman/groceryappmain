@@ -8,8 +8,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.capgemini.go.exception.CustomerAlreadyExistsException;
-import com.capgemini.go.exception.CustomerNotFoundException;
+import com.grocery.exceptions.CustomerAlreadyExistsException;
+import com.grocery.exceptions.CustomerNotFoundException;
 import com.grocery.model.CartModel;
 import com.grocery.model.CustomerModel;
 import com.grocery.model.OrderModel;

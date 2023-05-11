@@ -1,7 +1,7 @@
 package com.grocery.service;
 
-import com.capgemini.go.exception.OrderNotFoundException;
-import com.capgemini.go.exception.ProductNotFoundException;
+import com.grocery.exceptions.OrderNotFoundException;
+import com.grocery.exceptions.ProductNotFoundException;
 import com.grocery.model.OrderModel;
 
 public interface OrderService {

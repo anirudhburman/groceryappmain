@@ -9,8 +9,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.capgemini.go.exception.OrderNotFoundException;
-import com.capgemini.go.exception.ProductNotFoundException;
+import com.grocery.exceptions.OrderNotFoundException;
+import com.grocery.exceptions.ProductNotFoundException;
 import com.grocery.model.CartModel;
 import com.grocery.model.OrderModel;
 import com.grocery.model.ProductModel;

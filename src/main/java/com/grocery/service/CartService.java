@@ -2,7 +2,7 @@ package com.grocery.service;
 
 import java.util.List;
 
-import com.capgemini.go.exception.ProductNotFoundException;
+import com.grocery.exceptions.ProductNotFoundException;
 import com.grocery.model.CartModel;
 import com.grocery.model.ProductModel;
 
