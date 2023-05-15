@@ -2,8 +2,8 @@ package com.grocery.service;
 
 import java.util.List;
 
-import com.capgemini.go.exception.ProductAlreadyExistsException;
-import com.capgemini.go.exception.ProductNotFoundException;
+import com.grocery.exception.ProductAlreadyExistsException;
+import com.grocery.exception.ProductNotFoundException;
 import com.grocery.model.ProductModel;
 
 public interface ProductService {

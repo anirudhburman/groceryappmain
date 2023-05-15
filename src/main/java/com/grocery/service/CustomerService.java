@@ -2,8 +2,8 @@ package com.grocery.service;
 
 import java.util.List;
 
-import com.capgemini.go.exception.CustomerAlreadyExistsException;
-import com.capgemini.go.exception.CustomerNotFoundException;
+import com.grocery.exception.CustomerAlreadyExistsException;
+import com.grocery.exception.CustomerNotFoundException;
 import com.grocery.model.CartModel;
 import com.grocery.model.CustomerModel;
 import com.grocery.model.OrderModel;

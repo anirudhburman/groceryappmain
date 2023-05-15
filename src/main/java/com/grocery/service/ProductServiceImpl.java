@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.capgemini.go.exception.ProductAlreadyExistsException;
-import com.capgemini.go.exception.ProductNotFoundException;
+import com.grocery.exception.ProductAlreadyExistsException;
+import com.grocery.exception.ProductNotFoundException;
 import com.grocery.model.OrderModel;
 import com.grocery.model.ProductModel;
 import com.grocery.repository.ProductRepository;
