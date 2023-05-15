@@ -5,11 +5,11 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.grocery.exceptions.AddressNotFoundException;
-import com.grocery.exceptions.CustomerNotFoundException;
+import com.grocery.exception.AddressNotFoundException;
+import com.grocery.exception.CustomerNotFoundException;
 import com.grocery.model.AddressModel;
 import com.grocery.model.CustomerModel;
-import com.grocery.repositories.AddressRepository;
+import com.grocery.repository.AddressRepository;
 
 @Service
 public class AddressServiceImpl implements AddressService {

@@ -1,7 +1,7 @@
 package com.grocery.service;
 
-import com.grocery.exceptions.AddressNotFoundException;
-import com.grocery.exceptions.CustomerNotFoundException;
+import com.grocery.exception.AddressNotFoundException;
+import com.grocery.exception.CustomerNotFoundException;
 import com.grocery.model.AddressModel;
 import com.grocery.model.CustomerModel;
 

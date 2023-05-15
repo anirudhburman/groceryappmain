@@ -1,4 +1,4 @@
-package com.grocery.exceptions;
+package com.grocery.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ProductAlreadyExistsException extends Exception {
+public class EmptyCartException extends Exception {
 	
 	/**
 	 * 

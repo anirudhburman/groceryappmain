@@ -1,4 +1,4 @@
-package com.grocery.exceptions;
+package com.grocery.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,11 +9,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CustomerNotFoundException extends Exception {
+public class AddressNotFoundException extends Exception {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String message;
+	private String message; 
 }
