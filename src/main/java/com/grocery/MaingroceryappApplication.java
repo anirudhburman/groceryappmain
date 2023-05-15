@@ -11,6 +11,7 @@ public class MaingroceryappApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MaingroceryappApplication.class, args);
+		System.out.println("App started");
 	}
 
 }
