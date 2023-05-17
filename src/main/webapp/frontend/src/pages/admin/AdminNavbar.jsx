@@ -32,7 +32,7 @@ export default function AdminNavbar() {
 								icon="fas fa-hiking fa-2x me-2"
 								style={{ color: "#EDF1D6" }}
 							/>
-							GREAT OUTDOORS ADMIN{" "}
+							CG MART ADMIN{" "}
 						</div>
 					</Link>
 					<div>

@@ -158,12 +158,12 @@ export default function Invoice() {
 						<MDBCol md="12" className="text-center">
 							<MDBIcon
 								fas
-								icon="hiking"
+								icon="shopping-basket"
 								size="3x"
 								className="ms-0"
 								style={{ color: "#5d9fc5" }}
 							/>
-							<p className="pt-0">greatoutdoors.com</p>
+							<p className="pt-0">cgmart.com</p>
 						</MDBCol>
 					</MDBContainer>
 					<MDBRow>

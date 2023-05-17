@@ -73,7 +73,7 @@ export default function AddProductForm() {
 										>
 											<MDBIcon
 												fas
-												icon="hiking text-white"
+												icon="shopping-basket text-white"
 												size="3x"
 											/>
 											<p className="text-white title-style">

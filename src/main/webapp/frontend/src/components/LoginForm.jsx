@@ -93,12 +93,10 @@ export default function LoginForm() {
 							<div className="d-flex flex-row mt-2">
 								<MDBIcon
 									fas
-									icon="fas fa-hiking fa-3x me-3"
+									icon="fas fa-shopping-basket fa-3x me-3"
 									style={{ color: "#609966" }}
 								/>
-								<span className="h1 fw-bold mb-0">
-									GreatOutdoors
-								</span>
+								<span className="h1 fw-bold mb-0">CG MART</span>
 							</div>
 
 							<h5

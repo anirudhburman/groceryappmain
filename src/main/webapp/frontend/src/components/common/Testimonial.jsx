@@ -28,17 +28,19 @@ export default function Testimonial() {
 							className="rounded-circle shadow-1-strong"
 							width="150"
 							height="150"
+							alt="Harley Quinn"
 						/>
 					</div>
 					<h5 className="mb-3">Harley Quinn</h5>
-					<h6 className="text-warning mb-3">Environmentalist</h6>
+					<h6 className="text-warning mb-3">Home-Maker</h6>
 					<p className="px-xl-3">
 						<MDBIcon fas icon="quote-left" className="pe-2" />
-						HAHAHAHAHA The camp stove and the lighter I bought from
-						GreatOutdoors dot com helped me light a fire to Joker's
-						money which he stole during a recent Heist. I absolutely
-						loved watching it burn HAHAHAHHA! Thank you
-						GreatOutdoors dot com.
+						HAHAHAHAHA Shopping from CG Mart is the easiest way to
+						get daily essentials delivered to your doorstep. I
+						recently was out of matches while burning away Joker's
+						heist money and I quickly hopped on CG Mart and ordered
+						a bunch of Lighters and Match Boxes, NOW I CAN LIGHT THE
+						WORLD ON FIRE YAAAY!
 					</p>
 					<MDBTypography
 						listUnStyled
@@ -94,18 +96,21 @@ export default function Testimonial() {
 							className="rounded-circle shadow-1-strong"
 							width="150"
 							height="150"
+							alt="Pheobe Buffay"
 						/>
 					</div>
 					<h5 className="mb-3">Pheobe Buffay</h5>
-					<h6 className="text-warning mb-3">Seasonal HitchHiker</h6>
+					<h6 className="text-warning mb-3">PartTime Homeless</h6>
 					<p className="px-xl-3">
 						<MDBIcon fas icon="quote-left" className="pe-2" />
-						The Camp tent I lived in while I was homeless after my
-						mother died was from GreatOutdoors.com! It was soo
-						comfy, I did not even feel like I was homeless. There
-						was never any water leakage and even through heavy rains
-						and Hurricanes, it made me feel Safe. Thank you
-						GreatOutdoors!
+						When I used to live in a tent on the streets, I always
+						found CG mart carry bags in the dustbins. I knew it was
+						very famous and wanted to visit the site. I could not
+						imagine so many things on there. I could buy whatever
+						Food I want and from whereever I wanted from. Once I
+						logged into this site, I never went to sleep hungry
+						again. Monica also got fat because of CG Mart's instant
+						food delivery.
 					</p>
 					<MDBTypography
 						listUnStyled
@@ -161,18 +166,20 @@ export default function Testimonial() {
 							className="rounded-circle shadow-1-strong"
 							width="150"
 							height="150"
+							alt="Tony Stark"
 						/>
 					</div>
 					<h5 className="mb-3">Tony Stark</h5>
-					<h6 className="text-warning mb-3">Expert Mountaineer</h6>
+					<h6 className="text-warning mb-3">Saviour of our World</h6>
 					<p className="px-xl-3">
-						<MDBIcon fas icon="quote-left" className="pe-2" />
-						The things I bought from GreatOutdoors.com helped me
-						immensely when I was kidnapped by the Terr*rists in
-						Afghanistan. The walk through the Desert would not be
-						possible without my Decathlon water bottle and the
-						Woodland shoes. Thank you GreatOutdoors.com, you saved
-						my life!
+						<MDBIcon fas icon="quote-left" className="pe-2" />I knew
+						Ms.Potts always ordered from CG mart when we used to
+						live in my Malibu mansion. So when I got stuck in space
+						for sometime with Nebula I ordered a bunch of snacks
+						from CG Mart and they made Gaurdians of the Galaxy find
+						me and deliver my favourite Cheese Burger to me along
+						with Chips and Coke Zero. Thank you CG Mart, you saved
+						my Life.
 					</p>
 					<MDBTypography
 						listUnStyled
