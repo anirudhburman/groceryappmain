@@ -1,0 +1,82 @@
+.masonry-with-columns,
+.masonry-with-flex {
+	background-color: #10170e !important;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.masonry-with-columns div {
+	background-color: #10170e !important;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+
+.masonry-text {
+	padding: 3%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #10170e !important;
+	color: hsl(114, 100%, 95%);
+	font-weight: 900;
+	font-family: "Lato", sans-serif;
+	font-style: italic;
+	font-size: 5em;
+}
+
+/* Base */
+.animated-text {
+	padding: 0;
+	margin: 0;
+	background-color: #10170e !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 75vh;
+}
+.animated-text > h1 {
+	color: hsl(114, 100%, 95%);
+	font-size: 50px !important;
+	font-weight: bold !important;
+	font-family: monospace;
+	letter-spacing: 7px !important;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.animated-text > h1 {
+	padding: 64px;
+	background: linear-gradient(
+		to right,
+		hsl(99, 30%, 37%) 0,
+		hsl(95, 100%, 89%) 10%,
+		hsl(99, 30%, 37%) 20%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+	0% {
+		background-position: 0;
+	}
+	60% {
+		background-position: 600px;
+	}
+	100% {
+		background-position: 600px;
+	}
+}

@@ -1,0 +1,83 @@
+body {
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	/* display: flex;
+	flex-direction: column;
+	min-height: 100vh; */
+}
+
+/* body { */
+/* fallback for old browsers */
+/* background: #a1c4fd; */
+
+/* Chrome 10-25, Safari 5.1-6 */
+/* background: -webkit-linear-gradient( */
+/* to right, */
+/* rgba(161, 196, 253, 1), */
+/* rgba(194, 233, 251, 1) */
+/* ); */
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* background: linear-gradient( */
+/* to right, */
+/* rgba(161, 196, 253, 1), */
+/* rgba(194, 233, 251, 1) */
+/* ); */
+/* } */
+
+body {
+	/* fallback for old browsers */
+	background: #edf1d6;
+
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(
+		to bottom,
+		#edf1d6,
+		#9dc08b,
+		#609966,
+		#40513b
+	);
+
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to bottom, #edf1d6, #9dc08b, #609966, #40513b);
+}
+
+.card-wrapper {
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out;
+}
+
+.card-wrapper:hover {
+	transform: scale(1.05);
+}
+
+/* .content {
+	flex: 1;
+} */
+
+.footer {
+	z-index: 1;
+	margin-top: 5vh;
+}
+
+header {
+	font-family: "Lato", sans-serif;
+	font-style: italic;
+}
+
+@media (max-width: 767.98px) {
+	.border-sm-start-none {
+		border-left: none !important;
+	}
+}
+
+.title-style {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 700;
+	font-size: 20px;
+	color: hsl(52, 0%, 98%);
+}
+.title-quote {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 400;
+	color: hsl(52, 0%, 98%);
+}
