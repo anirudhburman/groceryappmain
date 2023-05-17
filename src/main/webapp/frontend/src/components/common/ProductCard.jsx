@@ -30,7 +30,7 @@ export default function ProductCard(prod) {
 	const img = prod.image.replace(/\s+/g, "");
 	const prodImg = productImages[img];
 	const defaultImg =
-		"https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.shutterstock.com%2Fshutterstock%2Fphotos%2F2006969189%2Fdisplay_1500%2Fstock-vector-vector-illstration-of-various-everyday-pantry-grocery-shopping-food-items-shopping-and-food-retail-2006969189.jpg&tbnid=IanrE_fc0hbucM&vet=12ahUKEwiKus746vv-AhVKidgFHYqtBk8QMygOegUIARCIAg..i&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fgrocery%2Bitem%3Fimage_type%3Dvector&docid=doUwVionjivj3M&w=1500&h=945&q=grocery%20items&hl=en&ved=2ahUKEwiKus746vv-AhVKidgFHYqtBk8QMygOegUIARCIAg";
+		"https://media.istockphoto.com/id/171302954/photo/groceries.jpg?s=612x612&w=0&k=20&c=D3MmhT5DafwimcYyxCYXqXMxr1W25wZnyUf4PF1RYw8=";
 	return (
 		<MDBCard
 			style={{ backgroundColor: "#fcffeb" }}
