@@ -27,15 +27,92 @@ export default function AddProductForm() {
 		productName: "",
 	});
 
+	const [errors, setErrors] = useState({
+		productName: "",
+		brand: "",
+		dimension: "",
+		quantity: "",
+		colour: "",
+		price: "",
+		productCategory: "",
+	  });
+
 	function handleChange(event) {
 		const { name, value } = event.target;
 		setProd((prevProd) => {
-			return {
-				...prevProd,
-				[name]: value,
-			};
+		  return {
+			...prevProd,
+			[name]: value,
+		  };
 		});
-	}
+	  
+		let updatedErrors = { ...errors };
+	  
+		if (name === "productName") {
+		  if (value.length > 50) {
+			updatedErrors.productName = "Product Name should not exceed 50 characters";
+		  }
+		   else {
+			updatedErrors.productName = "";
+		  }
+		}
+
+		if (name === "brand") {
+			if (value.length > 50) {
+			  updatedErrors.brand = "Product Brand should not exceed 50 characters";
+			}
+			 else {
+			  updatedErrors.brand = "";
+			}
+		  }
+		
+		  if (name === "dimension") {
+			if (value.length === 0) {
+			  updatedErrors.dimension = "Dimensions is required";
+			} else {
+			  updatedErrors.dimension = "";
+			}
+		  }
+		
+		  if (name === "quantity") {
+			if (isNaN(value) || value <= 0) {
+			  updatedErrors.quantity = "Quantity should be a positive number";
+			} else {
+			  updatedErrors.quantity = "";
+			}
+		  }
+		
+		  if (name === "colour") {
+			if (value.length === 0) {
+			  updatedErrors.colour = "Color is required";
+			}else if (!/^[a-zA-Z]+$/.test(value)) {
+				updatedErrors.colour = "Color should contain only alphabets";
+			} else {
+			  updatedErrors.colour = "";
+			}
+		  }
+		
+		  if (name === "price") {
+			if (isNaN(value) || value <= 0) {
+			  updatedErrors.price = "Price should be a positive number";
+			} else {
+			  updatedErrors.price = "";
+			}
+		  }
+		
+		  if (name === "productCategory") {
+			if (value.length === 0) {
+			  updatedErrors.productCategory = "Category is required";
+			}
+			else if (!/^[a-zA-Z]+$/.test(value)) {
+				updatedErrors.productCategory = "Product Category should contain only alphabets";
+			} else {
+			  updatedErrors.productCategory = "";
+			}
+		  }
+	  
+		setErrors(updatedErrors);
+	  }
 
 	function handleAdd() {
 		const add = async () => {
@@ -47,6 +124,7 @@ export default function AddProductForm() {
 		add();
 		setTimeout(() => navigate("/admin/products"), 1000);
 	}
+
 
 	return (
 		<MDBContainer className="py-5" style={{ maxWidth: "1100px" }}>
@@ -73,7 +151,7 @@ export default function AddProductForm() {
 										>
 											<MDBIcon
 												fas
-												icon="shopping-basket text-white"
+												icon="hiking text-white"
 												size="3x"
 											/>
 											<p className="text-white title-style">
@@ -121,8 +199,8 @@ export default function AddProductForm() {
 									</MDBTypography>
 
 									<MDBInput
-										onChange={handleChange}
-										name="productName"
+    									onChange={handleChange}
+    									name="productName"
 										label="Product Name*"
 										type="text"
 										className="mb-5"
@@ -131,6 +209,9 @@ export default function AddProductForm() {
 										value={prod.productName}
 										required
 									/>
+									{errors.productName && (
+										<div className="text-danger">{errors.productName}</div>
+									)}
 
 									<MDBInput
 										onChange={handleChange}
@@ -143,58 +224,73 @@ export default function AddProductForm() {
 										autoComplete="off"
 										required
 									/>
+									{errors.brand && (
+										<div className="text-danger">{errors.brand}</div>
+									)}
 
 									<MDBRow>
 										<MDBCol md="6" className="mb-5">
-											<MDBInput
-												onChange={handleChange}
-												name="dimension"
-												label="Dimensions*"
-												type="text"
-												size="lg"
-												value={prod.dimension}
-												autoComplete="off"
-												required
-											/>
+										<MDBInput
+											onChange={handleChange}
+											name="dimension"
+											label="Dimensions*"
+											type="text"
+											size="lg"
+											value={prod.dimension}
+											autoComplete="off"
+											required
+										/>
+										{errors.dimension && (
+											<div className="text-danger">{errors.dimension}</div>
+										)}
 										</MDBCol>
 										<MDBCol md="6" className="mb-5">
-											<MDBInput
-												onChange={handleChange}
-												name="quantity"
-												label="Quantity*"
-												type="text"
-												size="lg"
-												value={prod.quantity}
-												autoComplete="off"
-												required
-											/>
+										<MDBInput
+											onChange={handleChange}
+											name="quantity"
+											label="Quantity*"
+											type="text"
+											size="lg"
+											value={prod.quantity}
+											autoComplete="off"
+											required
+										/>
+										{errors.quantity && (
+											<div className="text-danger">{errors.quantity}</div>
+										)}
 										</MDBCol>
 									</MDBRow>
 
 									<MDBRow>
 										<MDBCol md="6" className="mb-5">
-											<MDBInput
-												onChange={handleChange}
-												name="colour"
-												label="Color*"
-												type="text"
-												size="lg"
-												value={prod.colour}
-												autoComplete="off"
-												required
-											/>
+										<MDBInput
+											onChange={handleChange}
+											name="colour"
+											label="Color*"
+											type="text"
+											size="lg"
+											value={prod.colour}
+											autoComplete="off"
+											required
+										/>
+										{errors.colour && (
+											<div className="text-danger">{errors.colour}</div>
+										)}
 										</MDBCol>
 										<MDBCol md="6" className="mb-5">
-											<MDBInput
-												onChange={handleChange}
-												name="price"
-												label="Price*"
-												type="text"
-												size="lg"
-												value={prod.price}
-												autoComplete="off"
-												required
-											/>
+										<MDBInput
+											onChange={handleChange}
+											name="price"
+											label="Price*"
+											type="text"
+											size="lg"
+											value={prod.price}
+											autoComplete="off"
+											required
+										/>
+										{errors.price && (
+											<div className="text-danger">{errors.price}</div>
+										)}
 										</MDBCol>
 									</MDBRow>
 
@@ -209,6 +305,9 @@ export default function AddProductForm() {
 										autoComplete="off"
 										required
 									/>
+									{errors.productCategory && (
+										<div className="text-danger">{errors.productCategory}</div>
+									)}
 
 									<div className="d-flex justify-content-end pt-3">
 										<MDBBtn
