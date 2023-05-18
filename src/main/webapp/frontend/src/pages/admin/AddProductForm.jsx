@@ -115,6 +115,20 @@ export default function AddProductForm() {
 	  }
 
 	function handleAdd() {
+		
+		if (
+			prod.productName === "" ||
+			prod.brand === "" ||
+			prod.dimension === "" ||
+			prod.quantity === "" ||
+			prod.colour === "" ||
+			prod.price === "" ||
+			prod.productCategory === ""
+		  ) {
+			alert("Please fill in all the required fields");
+			return;
+		  }
+		
 		const add = async () => {
 			return await productApi
 				.addProduct(prod)
