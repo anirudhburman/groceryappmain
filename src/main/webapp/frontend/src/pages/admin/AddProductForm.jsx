@@ -117,7 +117,6 @@ export default function AddProductForm() {
 	}
 
 	function handleAdd() {
-		
 		if (
 			prod.productName === "" ||
 			prod.brand === "" ||
@@ -126,11 +125,11 @@ export default function AddProductForm() {
 			prod.colour === "" ||
 			prod.price === "" ||
 			prod.productCategory === ""
-		  ) {
+		) {
 			alert("Please fill in all the required fields");
 			return;
-		  }
-		
+		}
+
 		const add = async () => {
 			return await productApi
 				.addProduct(prod)
@@ -205,7 +204,7 @@ export default function AddProductForm() {
 								</div>
 							</MDBCol>
 							<MDBCol md="6">
-								<MDBValidation isValidated>
+								<MDBValidation isInvalidated>
 									<MDBCardBody className="p-md-5 text-black">
 										<MDBTypography
 											tag="h3"
@@ -213,7 +212,7 @@ export default function AddProductForm() {
 										>
 											Product Info
 										</MDBTypography>
-										<MDBValidationItem invalid>
+										<MDBValidationItem valid>
 											<MDBInput
 												onChange={handleChange}
 												name="productName"
@@ -223,7 +222,7 @@ export default function AddProductForm() {
 												size="lg"
 												autoComplete="off"
 												value={prod.productName}
-												required
+												required={true}
 											/>
 											{errors.productName && (
 												<div className="text-danger">
@@ -231,7 +230,7 @@ export default function AddProductForm() {
 												</div>
 											)}
 										</MDBValidationItem>
-										<MDBValidationItem invalid>
+										<MDBValidationItem valid>
 											<MDBInput
 												onChange={handleChange}
 												name="brand"
@@ -241,7 +240,7 @@ export default function AddProductForm() {
 												size="lg"
 												value={prod.brand}
 												autoComplete="off"
-												required
+												required={true}
 											/>
 											{errors.brand && (
 												<div className="text-danger">
@@ -252,7 +251,7 @@ export default function AddProductForm() {
 
 										<MDBRow>
 											<MDBCol md="6" className="mb-5">
-												<MDBValidationItem invalid>
+												<MDBValidationItem valid>
 													<MDBInput
 														onChange={handleChange}
 														name="dimension"
@@ -261,7 +260,7 @@ export default function AddProductForm() {
 														size="lg"
 														value={prod.dimension}
 														autoComplete="off"
-														required
+														required={true}
 													/>
 													{errors.dimension && (
 														<div className="text-danger">
@@ -280,7 +279,7 @@ export default function AddProductForm() {
 														size="lg"
 														value={prod.quantity}
 														autoComplete="off"
-														required
+														required={true}
 													/>
 													{errors.quantity && (
 														<div className="text-danger">
@@ -293,7 +292,7 @@ export default function AddProductForm() {
 
 										<MDBRow>
 											<MDBCol md="6" className="mb-5">
-												<MDBValidationItem invalid>
+												<MDBValidationItem valid>
 													<MDBInput
 														onChange={handleChange}
 														name="colour"
@@ -302,7 +301,7 @@ export default function AddProductForm() {
 														size="lg"
 														value={prod.colour}
 														autoComplete="off"
-														required
+														required={true}
 													/>
 													{errors.colour && (
 														<div className="text-danger">
@@ -312,7 +311,7 @@ export default function AddProductForm() {
 												</MDBValidationItem>
 											</MDBCol>
 											<MDBCol md="6" className="mb-5">
-												<MDBValidationItem invalid>
+												<MDBValidationItem valid>
 													<MDBInput
 														onChange={handleChange}
 														name="price"
@@ -321,7 +320,7 @@ export default function AddProductForm() {
 														size="lg"
 														value={prod.price}
 														autoComplete="off"
-														required
+														required={true}
 													/>
 													{errors.price && (
 														<div className="text-danger">
@@ -341,7 +340,7 @@ export default function AddProductForm() {
 												value={prod.productCategory}
 												size="lg"
 												autoComplete="off"
-												required
+												required={true}
 											/>
 											{errors.productCategory && (
 												<div className="text-danger">
