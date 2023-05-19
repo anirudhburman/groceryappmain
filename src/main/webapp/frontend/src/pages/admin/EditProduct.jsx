@@ -231,7 +231,7 @@ export default function EditProductForm() {
 												backgroundColor: "#40513b",
 											}}
 										>
-											Add Product
+											Update Product
 										</MDBBtn>
 									</div>
 								</MDBCardBody>

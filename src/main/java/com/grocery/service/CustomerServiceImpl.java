@@ -51,7 +51,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public CustomerModel getCustomerById(Integer custId) throws CustomerNotFoundException {
 		if(custRepo.existsById(custId)) {
-			logger.info("Customer added to DB");
+			logger.info("Customer exists in DB");
 			return custRepo.findById(custId).get();
 		}
 		throw new CustomerNotFoundException();
