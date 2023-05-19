@@ -44,7 +44,15 @@ export default function LoginForm() {
 				setShowSuccess(true);
 			})
 			.catch((error) => {
-				setErr(error.response.data.message);
+				let e = error.response.data.message;
+				if (
+					e ===
+					"Validation failed for object='loginRequestDto'. Error count: 2"
+				) {
+					setErr("Please fill all the fields.");
+				} else {
+					setErr(error.response.data.message);
+				}
 				console.log(error);
 				console.error(`Error logging in user: ${error}`);
 				setShowErr(true);

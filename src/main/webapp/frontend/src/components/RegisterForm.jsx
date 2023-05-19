@@ -12,6 +12,7 @@ import {
 	MDBValidation,
 	MDBValidationItem,
 } from "mdb-react-ui-kit";
+import Alert from "react-bootstrap/Alert";
 import "./assets/styles/registerForm.css";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -35,6 +36,9 @@ function RegisterForm() {
 		mobileNo: "",
 		email: "",
 	});
+	const [showErr, setShowErr] = useState(false);
+	const [showSuccess, setShowSuccess] = useState(false);
+	const [err, setErr] = useState("");
 
 	function handleCustChange(event) {
 		const { name, value } = event.target;
@@ -73,10 +77,24 @@ function RegisterForm() {
 		event.preventDefault();
 		await register(cust, address, user)
 			.then((response) => {
-				console.log(response.data);
+				// console.log(response.data);
 				setCustomer(response.data);
+				setShowSuccess(true);
 			})
-			.catch((error) => console.log(error.response.data));
+			.catch((error) => {
+				let e = error.response.data.message;
+				if ((e = "Could not commit JPA transaction")) {
+					setErr(
+						"Check if all the Input fields are filled and are correct"
+					);
+				} else {
+					setErr(error.response.data.message);
+				}
+				console.log(error);
+				console.log(err);
+				console.error(`Error registering user: ${error}`);
+				setShowErr(true);
+			});
 	}
 
 	if (isAuth) {
@@ -96,6 +114,29 @@ function RegisterForm() {
 							Create Account
 						</MDBTypography>
 					</div>
+					{showErr && (
+						<Alert
+							variant="danger"
+							onClose={() => setShowErr(false)}
+							dismissible
+						>
+							<Alert.Heading>
+								Oh no! There was an error!
+							</Alert.Heading>
+							<p>{err}</p>
+						</Alert>
+					)}
+					{showSuccess && (
+						<Alert
+							variant="success"
+							onClose={() => setShowSuccess(false)}
+							dismissible
+						>
+							<Alert.Heading>
+								All Good! Welcome {user.userName}!
+							</Alert.Heading>
+						</Alert>
+					)}
 					<MDBCard
 						className="card-registration card-registration-2"
 						style={{ borderRadius: "15px" }}
