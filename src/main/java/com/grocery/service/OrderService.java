@@ -17,6 +17,4 @@ public interface OrderService {
 	public OrderModel updateOrder(OrderModel order) throws OrderNotFoundException;
 	
 	public OrderModel getOrderById(Integer orderId) throws OrderNotFoundException;
-	
-//	public List<OrderModel> getAllOrders();
 }

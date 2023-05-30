@@ -108,11 +108,6 @@ public class OrderServiceImpl implements OrderService {
 		throw new OrderNotFoundException();
 	}
 
-//	@Override
-//	public List<OrderModel> getAllOrders() {
-//		return (List<OrderModel>) orderDao.findAll();
-//	}
-
 	@Override
 	public String cancelOrderById(Integer id) throws OrderNotFoundException {
 		if (orderRepo.existsById(id)) {

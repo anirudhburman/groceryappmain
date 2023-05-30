@@ -44,7 +44,6 @@ public class ProductServiceImpl implements ProductService {
 			    // Remove the product from orders
 			    for (OrderModel order : product.getOrders()) {
 			        order.getProducts().remove(product);
-			        System.out.println(order);
 			    }
 			    
 			    return ("Cannot remove product from here. Do it manually");
@@ -52,7 +51,6 @@ public class ProductServiceImpl implements ProductService {
 			
 			throw new ProductNotFoundException();
 		    // Remove the product
-//		    prodRepo.deleteById(productId);
 		}
 		throw new ProductNotFoundException();
 	}
@@ -95,8 +93,7 @@ public class ProductServiceImpl implements ProductService {
 	public ProductModel getProductById(Integer id) throws ProductNotFoundException {
 		Optional<ProductModel> optProd = prodRepo.findById(id);
 		if(optProd.isPresent()) {
-			ProductModel prod = optProd.get();
-			return prod;
+			return optProd.get();
 		}
 		throw new ProductNotFoundException();
 	}

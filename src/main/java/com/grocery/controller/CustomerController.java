@@ -30,7 +30,6 @@ public class CustomerController {
 	// http://localhost:8080/addcust
 	@PostMapping("/addcust")
 	public CustomerModel addCust(@RequestBody CustomerModel cust) throws CustomerAlreadyExistsException {
-//		CustomerModel customer = custMapper.toEntity(cust);
 		return custSer.addCustomer(cust);
 	}
 
@@ -93,7 +92,7 @@ public class CustomerController {
 	 * @throws CustomerNotFoundException
 	 */
 	@GetMapping("/getcartbycustid/{id}")
-	public CartModel getCartByCustId(@PathVariable("id") Integer custId) throws EmptyCartException, CustomerNotFoundException {
+	public CartModel getCartByCustId(@PathVariable("id") Integer custId) throws CustomerNotFoundException {
 		return custSer.getCartByCustId(custId);
 	}
 	
@@ -105,7 +104,7 @@ public class CustomerController {
 	 * @throws CustomerNotFoundException
 	 */
 	@GetMapping("/getwishlistbycustid/{id}")
-	public WishlistModel getWishListByCustId(@PathVariable("id") Integer id) throws EmptyWishListException, CustomerNotFoundException {
+	public WishlistModel getWishListByCustId(@PathVariable("id") Integer id) throws CustomerNotFoundException {
 		return custSer.getWishListByCustId(id);
 	}
 }

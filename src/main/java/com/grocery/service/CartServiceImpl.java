@@ -54,7 +54,7 @@ public class CartServiceImpl implements CartService {
 
 	// Update Cart
 	public CartModel updateCart(CartModel cart) {
-		return null;
+		return cart;
 	}
 
 	// Delete product from Cart

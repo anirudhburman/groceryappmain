@@ -23,7 +23,11 @@ public class WishlistController {
 	@Autowired
 	WishlistService wishSer;
 	
-	// http://localhost:8080/getwishlist/{id}
+	/**
+	 * http://localhost:8080/getwishlist/{id}
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/getwishlist/{id}")
 	public WishlistModel viewWishlist(@PathVariable("id") Integer id) {
 		return wishSer.viewWishlist(id);
@@ -44,8 +48,6 @@ public class WishlistController {
 		return wishSer.addProductToWishlist(wishId, prodId);
 	}
 
-	// Update Wishlist
-
 	/**
 	 * http://localhost:8080/addtowishlist/{wishId}/{cartId}
 	 * 
@@ -60,7 +62,11 @@ public class WishlistController {
 		return wishSer.deleteProductFromWishlist(wishId, prodId);
 	}
 
-	// http://localhost:8080/getcartproducts/{cartid}
+	/**
+	 * http://localhost:8080/getcartproducts/{cartid}
+	 * @param wishId
+	 * @return
+	 */
 	@GetMapping("/getwishproducts/{wishid}")
 	public List<ProductModel> getWishListProducts(@PathVariable("wishid") Integer wishId) {
 		return wishSer.getAllWishProducts(wishId);

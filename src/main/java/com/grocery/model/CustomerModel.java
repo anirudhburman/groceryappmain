@@ -2,8 +2,6 @@ package com.grocery.model;
 
 import java.util.List;
 
-import org.hibernate.validator.constraints.Email;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,7 +44,6 @@ public class CustomerModel {
 	private String mobileNo;
 	
 	@NotBlank(message="Email is a required field")
-	@Email
 	private String email;
 	
 	// HAS - A relationship

@@ -76,10 +76,4 @@ public class OrderController {
 	public OrderModel getOrderById(@PathVariable("id") Integer orderId) throws OrderNotFoundException {
 		return orderSer.getOrderById(orderId);
 	}
-
-	// http://localhost:8080/allorders
-	/*
-	 * @GetMapping("/allorders") public List<OrderModel> getAllOrders() { return
-	 * orderSer.getAllOrders(); }
-	 */
 }

@@ -55,7 +55,11 @@ public class CartController {
 		return cartSer.deleteProductFromCart(cartId, prodId);
 	}
 	
-	// http://localhost:8080/getcartproducts/{cartid}
+	/**
+	 * http://localhost:8080/getcartproducts/{cartid}
+	 * @param cartId
+	 * @return
+	 */
 	@GetMapping("/getcartproducts/{cartid}")
 	public List<ProductModel> getCartProducts(@PathVariable("cartid") Integer cartId) {
 		return cartSer.getAllCartProducts(cartId);
