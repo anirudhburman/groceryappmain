@@ -27,7 +27,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export default function Profile() {
 	const navigate = useNavigate();
-	const { customer } = useContext(AuthContext);
+	const { customer, logout } = useContext(AuthContext);
 	const [user, setUser] = useState({
 		userId: 0,
 		userName: "",
@@ -106,6 +106,7 @@ export default function Profile() {
 				.catch((error) => console.log(error.response.data));
 		};
 		fetch(cust.customerId);
+		logout();
 	}
 
 	function handleEdit() {

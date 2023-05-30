@@ -37,16 +37,20 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public String deleteProductById(Integer productId) throws ProductNotFoundException {
 		if(prodRepo.existsById(productId)) {
-			ProductModel product = prodRepo.findById(productId).get();
-		    
-		    // Remove the product from orders
-		    for (OrderModel order : product.getOrders()) {
-		        order.getProducts().remove(product);
-		        System.out.println(order);
-		    }
-		    
-		    return ("Cannot remove product from here. Do it manually");
-		    
+			Optional<ProductModel> prod = prodRepo.findById(productId);
+			if(prod.isPresent()) {
+				ProductModel product = prod.get();
+			    
+			    // Remove the product from orders
+			    for (OrderModel order : product.getOrders()) {
+			        order.getProducts().remove(product);
+			        System.out.println(order);
+			    }
+			    
+			    return ("Cannot remove product from here. Do it manually");
+			}
+			
+			throw new ProductNotFoundException();
 		    // Remove the product
 //		    prodRepo.deleteById(productId);
 		}

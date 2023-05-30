@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-render-in-setup */
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { AuthContext } from "../../context/AuthContext";

@@ -25,7 +25,11 @@ public class WishlistServiceImpl implements WishlistService {
 
 	@Override
 	public WishlistModel viewWishlist(Integer id) {
-		return wishRepo.findById(id).get();
+		Optional<WishlistModel> wish = wishRepo.findById(id);
+		if(wish.isPresent()) {
+			return wish.get();
+		}
+		return null;
 	}
 
 	@Override

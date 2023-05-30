@@ -1,0 +1,12 @@
+2023-05-19 17:01:52,841 INFO c.g.MaingroceryappApplication [restartedMain] Starting MaingroceryappApplication using Java 17.0.5 with PID 8116 (C:\Users\ANIBARMA\eclipse-workspace\maingroceryapp\bin\main started by anibarma in C:\Users\ANIBARMA\eclipse-workspace\maingroceryapp)
+2023-05-19 17:01:52,849 DEBUG c.g.MaingroceryappApplication [restartedMain] Running with Spring Boot v3.0.6, Spring v6.0.8
+2023-05-19 17:01:52,850 INFO c.g.MaingroceryappApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-05-19 17:01:57,004 INFO c.g.MaingroceryappApplication [restartedMain] Started MaingroceryappApplication in 4.488 seconds (process running for 5.326)
+2023-05-19 17:43:46,002 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-5] Customer exists in DB
+2023-05-19 17:45:00,091 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-10] Customer exists in DB
+2023-05-19 17:45:05,125 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-10] Customer exists in DB
+2023-05-19 17:45:32,429 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-5] Customer exists in DB
+2023-05-22 02:12:26,014 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-10] Customer exists in DB
+2023-05-22 02:12:53,762 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-9] Customer exists in DB
+2023-05-22 02:13:03,364 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-4] Customer exists in DB
+2023-05-22 02:28:34,485 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-9] Customer exists in DB

@@ -85,7 +85,7 @@ function RegisterForm() {
 				let e = error.response.data.message;
 				if ((e = "Could not commit JPA transaction")) {
 					setErr(
-						"Check if all the Input fields are filled and are correct"
+						"Check if all the Input fields are filled and are correct like Mobile No and Email."
 					);
 				} else {
 					setErr(error.response.data.message);
@@ -164,7 +164,7 @@ function RegisterForm() {
 												id="form1"
 												type="text"
 												value={cust.customerName}
-												required
+												required={true}
 												autoComplete="off"
 											/>
 										</MDBValidationItem>
@@ -182,7 +182,7 @@ function RegisterForm() {
 												id="form2"
 												type="number"
 												value={cust.mobileNo}
-												required
+												required={true}
 												autoComplete="off"
 											/>
 										</MDBValidationItem>
@@ -199,7 +199,7 @@ function RegisterForm() {
 												id="form3"
 												type="email"
 												value={cust.email}
-												required
+												required={true}
 												autoComplete="off"
 											/>
 										</MDBValidationItem>
@@ -216,7 +216,7 @@ function RegisterForm() {
 												id="form4"
 												type="text"
 												value={user.userName}
-												required
+												required={true}
 												autoComplete="off"
 											/>
 										</MDBValidationItem>
@@ -233,7 +233,7 @@ function RegisterForm() {
 												id="form5"
 												type="password"
 												value={user.userPassword}
-												required
+												required={true}
 												autoComplete="off"
 											/>
 										</MDBValidationItem>
@@ -274,7 +274,7 @@ function RegisterForm() {
 														value={
 															address.buildingNo
 														}
-														required
+														required={true}
 														autoComplete="off"
 													/>
 												</MDBValidationItem>
@@ -301,6 +301,7 @@ function RegisterForm() {
 														type="number"
 														value={address.zip}
 														autoComplete="off"
+														required={true}
 													/>
 												</MDBValidationItem>
 											</MDBCol>
@@ -320,7 +321,7 @@ function RegisterForm() {
 												id="form8"
 												type="text"
 												value={address.areaName}
-												required
+												required={true}
 												autoComplete="off"
 											/>
 										</MDBValidationItem>
@@ -339,7 +340,7 @@ function RegisterForm() {
 												id="form9"
 												type="text"
 												value={address.city}
-												required
+												required={true}
 												autoComplete="off"
 											/>
 										</MDBValidationItem>
@@ -358,7 +359,7 @@ function RegisterForm() {
 												id="form10"
 												type="text"
 												value={address.state}
-												required
+												required={true}
 												autoComplete="off"
 											/>
 										</MDBValidationItem>
@@ -371,7 +372,7 @@ function RegisterForm() {
 												id="flexCheckDefault"
 												labelClass="text-white mb-4"
 												label="I do accept the Terms and Conditions of your site.*"
-												required
+												required={true}
 											/>
 										</MDBValidationItem>
 										<br />

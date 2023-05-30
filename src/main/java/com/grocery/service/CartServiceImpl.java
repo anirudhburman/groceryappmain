@@ -24,7 +24,12 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	public CartModel viewCartById(Integer id) {
-		return cartRepo.findById(id).get();
+		Optional<CartModel> cart = cartRepo.findById(id);
+		if(cart.isPresent()) {
+			return cart.get();
+		} else {
+			return null;
+		}
 	}
 
 	@Override

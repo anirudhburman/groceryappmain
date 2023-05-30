@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,21 +64,25 @@ public class OrderServiceImpl implements OrderService {
 	public String cancelAProduct(Integer orderId, Integer productId)
 			throws OrderNotFoundException, ProductNotFoundException {
 		if (orderRepo.existsById(orderId)) {
-			OrderModel ord = orderRepo.findById(orderId).get();
-			List<ProductModel> prods = ord.getProducts();
-			int size = prods.size();
-			for (Iterator<ProductModel> iterator = prods.iterator(); iterator.hasNext();) {
-				ProductModel productModel = iterator.next();
-				if (productModel.getProductId().equals(productId)) {
-					iterator.remove();
+			Optional<OrderModel> order = orderRepo.findById(orderId);
+			if(order.isPresent()) {
+				OrderModel ord = order.get();
+				List<ProductModel> prods = ord.getProducts();
+				int size = prods.size();
+				for (Iterator<ProductModel> iterator = prods.iterator(); iterator.hasNext();) {
+					ProductModel productModel = iterator.next();
+					if (productModel.getProductId().equals(productId)) {
+						iterator.remove();
+					}
 				}
+				if (prods.size() != size - 1) {
+					throw new ProductNotFoundException();
+				}
+				ord.setProducts(prods);
+				orderRepo.save(ord);
+				return "Product deleted";
 			}
-			if (prods.size() != size - 1) {
-				throw new ProductNotFoundException();
-			}
-			ord.setProducts(prods);
-			orderRepo.save(ord);
-			return "Product deleted";
+			throw new OrderNotFoundException();
 		}
 		throw new OrderNotFoundException();
 	}
@@ -94,7 +99,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public OrderModel getOrderById(Integer orderId) throws OrderNotFoundException {
 		if (orderRepo.existsById(orderId)) {
-			return orderRepo.findById(orderId).get();
+			Optional<OrderModel> order = orderRepo.findById(orderId);
+			if(order.isPresent()) {
+				return order.get();
+			}
+			throw new OrderNotFoundException();
 		}
 		throw new OrderNotFoundException();
 	}
@@ -107,10 +116,14 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public String cancelOrderById(Integer id) throws OrderNotFoundException {
 		if (orderRepo.existsById(id)) {
-			OrderModel order = orderRepo.findById(id).get();
-			order.setCustomer(null);
-			orderRepo.deleteById(id);
-			return "Order deleted by ID";
+			Optional<OrderModel> ord = orderRepo.findById(id);
+			if(ord.isPresent()) {
+				OrderModel order = ord.get();
+				order.setCustomer(null);
+				orderRepo.deleteById(id);
+				return "Order deleted by ID";
+			}
+			throw new OrderNotFoundException();
 		}
 		throw new OrderNotFoundException();
 	}

@@ -124,6 +124,7 @@ export default function LoginForm() {
 								label="Enter your UserName"
 								size="lg"
 								autoComplete="off"
+								required={true}
 							/>
 							<MDBInput
 								wrapperClass="mb-4"
@@ -135,6 +136,7 @@ export default function LoginForm() {
 								label="Enter your Password"
 								size="lg"
 								autoComplete="off"
+								required={true}
 							/>
 
 							<MDBBtn

@@ -2,6 +2,7 @@ package com.grocery.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,7 +53,12 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerModel getCustomerById(Integer custId) throws CustomerNotFoundException {
 		if(custRepo.existsById(custId)) {
 			logger.info("Customer exists in DB");
-			return custRepo.findById(custId).get();
+			Optional<CustomerModel> cust = custRepo.findById(custId);
+			if(cust.isPresent()) {
+				return cust.get();
+			} else {
+				throw new CustomerNotFoundException();
+			}
 		}
 		throw new CustomerNotFoundException();
 	}
@@ -100,8 +106,9 @@ public class CustomerServiceImpl implements CustomerService {
 		if(!custRepo.existsById(custId)) {
 			throw new CustomerNotFoundException();
 		}
-		if(custRepo.findById(custId).isPresent()) {
-			return custRepo.findById(custId).get().getOrders();
+		Optional<CustomerModel> cust = custRepo.findById(custId);
+		if(cust.isPresent()) {
+			return cust.get().getOrders();
 		}
 		throw new CustomerNotFoundException();
 	}
@@ -111,8 +118,12 @@ public class CustomerServiceImpl implements CustomerService {
 		if(!custRepo.existsById(custId)) {
 			throw new CustomerNotFoundException();
 		}
-		CartModel cart = custRepo.findById(custId).get().getCart();
-		return cart;
+		Optional<CustomerModel> cust = custRepo.findById(custId);
+		if(cust.isPresent()) {
+			return cust.get().getCart();
+		}
+		throw new CustomerNotFoundException();
+		
 	}
 
 	@Override
@@ -120,7 +131,11 @@ public class CustomerServiceImpl implements CustomerService {
 		if(!custRepo.existsById(id)) {
 			throw new CustomerNotFoundException();
 		}
-		return custRepo.findById(id).get().getWishlist();
+		Optional<CustomerModel> cust = custRepo.findById(id);
+		if(cust.isPresent()) {
+			return cust.get().getWishlist();
+		}
+		throw new CustomerNotFoundException();
 	}
 
 }

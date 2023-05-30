@@ -1,5 +1,7 @@
 package com.grocery.service;
 
+import java.util.Optional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +47,12 @@ public class AddressServiceImpl implements AddressService {
 	@Override
 	public AddressModel getAddressById(Integer id) throws AddressNotFoundException {
 		if(addrRepo.existsById(id)) {
-			return addrRepo.findById(id).get();
+			Optional<AddressModel> add = addrRepo.findById(id);
+			if(add.isPresent()) {
+				return add.get();
+			} else {
+				throw new AddressNotFoundException();
+			}
 		}
 		throw new AddressNotFoundException();
 	}
@@ -53,7 +60,12 @@ public class AddressServiceImpl implements AddressService {
 	@Override
 	public CustomerModel getCustomerByAddressId(Integer id) throws CustomerNotFoundException {
 		if(addrRepo.existsById(id)) {
-			return addrRepo.findById(id).get().getCustomer();
+			Optional<AddressModel> add = addrRepo.findById(id);
+			if(add.isPresent()) {
+				return add.get().getCustomer();
+			} else {
+				throw new CustomerNotFoundException();
+			}
 		}
 		throw new CustomerNotFoundException();
 	}
