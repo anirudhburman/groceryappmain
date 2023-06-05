@@ -26,3 +26,7 @@
 2023-06-02 17:14:52,644 DEBUG c.g.s.AddressServiceTests [main] Running with Spring Boot v3.0.6, Spring v6.0.8
 2023-06-02 17:14:52,646 INFO c.g.s.AddressServiceTests [main] No active profile set, falling back to 1 default profile: "default"
 2023-06-02 17:14:59,909 INFO c.g.s.AddressServiceTests [main] Started AddressServiceTests in 7.804 seconds (process running for 10.388)
+2023-06-05 09:58:20,935 INFO c.g.s.AddressServiceTests [Test worker] Starting AddressServiceTests using Java 17.0.5 with PID 21484 (started by ANIBARMA in C:\Users\ANIBARMA\eclipse-workspace\maingroceryapp)
+2023-06-05 09:58:20,947 DEBUG c.g.s.AddressServiceTests [Test worker] Running with Spring Boot v3.0.6, Spring v6.0.8
+2023-06-05 09:58:20,948 INFO c.g.s.AddressServiceTests [Test worker] No active profile set, falling back to 1 default profile: "default"
+2023-06-05 09:58:25,642 INFO c.g.s.AddressServiceTests [Test worker] Started AddressServiceTests in 5.028 seconds (process running for 6.611)
