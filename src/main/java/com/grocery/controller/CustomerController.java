@@ -21,7 +21,7 @@ import com.grocery.model.WishlistModel;
 import com.grocery.service.CustomerService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 public class CustomerController {
 
 	@Autowired

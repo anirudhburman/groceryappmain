@@ -19,7 +19,7 @@ import com.grocery.service.UserService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 public class UserController {
 	
 	@Autowired

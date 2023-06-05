@@ -1,0 +1,102 @@
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530   1) package com.grocery.service;
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530   2) 
+6089334e (sashedab       2023-05-15 15:03:51 +0530   3) import com.grocery.dto.LoginRequestDto;
+6089334e (sashedab       2023-05-15 15:03:51 +0530   4) import com.grocery.exception.UserNotFoundException;
+6089334e (sashedab       2023-05-15 15:03:51 +0530   5) import com.grocery.model.CustomerModel;
+6089334e (sashedab       2023-05-15 15:03:51 +0530   6) import com.grocery.model.UserModel;
+6089334e (sashedab       2023-05-15 15:03:51 +0530   7) import com.grocery.repository.UserRepository;
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530   8) import org.junit.jupiter.api.BeforeEach;
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530   9) import org.junit.jupiter.api.Test;
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  10) import org.mockito.InjectMocks;
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  11) import org.mockito.Mock;
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  12) import org.springframework.boot.test.context.SpringBootTest;
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  13) 
+6089334e (sashedab       2023-05-15 15:03:51 +0530  14) import java.util.ArrayList;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  15) import java.util.List;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  16) import java.util.Optional;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  17) 
+6089334e (sashedab       2023-05-15 15:03:51 +0530  18) import static org.junit.jupiter.api.Assertions.*;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  19) import static org.mockito.ArgumentMatchers.*;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  20) import static org.mockito.Mockito.when;
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  21) 
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  22) @SpringBootTest
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  23) class UserServiceTests {
+6089334e (sashedab       2023-05-15 15:03:51 +0530  24) 
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  25) 	@Mock
+6089334e (sashedab       2023-05-15 15:03:51 +0530  26) 	private UserRepository userRepository;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  27) 
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  28) 	@InjectMocks
+6089334e (sashedab       2023-05-15 15:03:51 +0530  29) 	private UserServiceImpl userService;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  30) 
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  31) 	private UserModel user;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  32) 	private LoginRequestDto loginRequest;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  33) 	private CustomerModel customer;
+6089334e (sashedab       2023-05-15 15:03:51 +0530  34) 
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  35) 	@BeforeEach
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  36) 	void setup() {
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  37) 		user = new UserModel();
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  38) 		user.setUserId(1);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  39) 		user.setUserName("testuser");
+6089334e (sashedab       2023-05-15 15:03:51 +0530  40) 		user.setUserPassword("password");
+6089334e (sashedab       2023-05-15 15:03:51 +0530  41) 		loginRequest = new LoginRequestDto();
+6089334e (sashedab       2023-05-15 15:03:51 +0530  42) 		loginRequest.setUserName("testuser");
+6089334e (sashedab       2023-05-15 15:03:51 +0530  43) 		loginRequest.setPassword("password");
+6089334e (sashedab       2023-05-15 15:03:51 +0530  44) 		customer = new CustomerModel();
+6089334e (sashedab       2023-05-15 15:03:51 +0530  45) 		customer.setCustomerId(1);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  46) 		user.setCustomer(customer);
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  47) 	}
+6089334e (sashedab       2023-05-15 15:03:51 +0530  48) 
+6089334e (sashedab       2023-05-15 15:03:51 +0530  49) 	@Test
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  50)      void testAddUser() {
+6089334e (sashedab       2023-05-15 15:03:51 +0530  51)         when(userRepository.save(any(UserModel.class))).thenReturn(user);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  52)         UserModel result = userService.addUser(user);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  53)         assertNotNull(result);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  54)         assertEquals(user, result);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  55)     }
+6089334e (sashedab       2023-05-15 15:03:51 +0530  56) 
+6089334e (sashedab       2023-05-15 15:03:51 +0530  57) 	@Test
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  58)      void testLoginUser_ValidCredentials() throws UserNotFoundException {
+6089334e (sashedab       2023-05-15 15:03:51 +0530  59)         when(userRepository.findByUserName(loginRequest.getUserName())).thenReturn(Optional.of(user));
+6089334e (sashedab       2023-05-15 15:03:51 +0530  60)         UserModel result = userService.loginUser(loginRequest);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  61)         assertNotNull(result);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  62)         assertEquals(user, result);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  63)     }
+6089334e (sashedab       2023-05-15 15:03:51 +0530  64) 
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  65) 	@Test
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  66) 	void testLoginUser_IncorrectPassword() {
+6089334e (sashedab       2023-05-15 15:03:51 +0530  67) 		user.setUserPassword("incorrectpassword");
+6089334e (sashedab       2023-05-15 15:03:51 +0530  68) 		when(userRepository.findByUserName(loginRequest.getUserName())).thenReturn(Optional.of(user));
+6089334e (sashedab       2023-05-15 15:03:51 +0530  69) 		assertThrows(UserNotFoundException.class, () -> userService.loginUser(loginRequest));
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  70) 	}
+6089334e (sashedab       2023-05-15 15:03:51 +0530  71) 
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  72) 	@Test
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  73)      void testLoginUser_UserNameNotFound() {
+6089334e (sashedab       2023-05-15 15:03:51 +0530  74)         when(userRepository.findByUserName(loginRequest.getUserName())).thenReturn(Optional.empty());
+6089334e (sashedab       2023-05-15 15:03:51 +0530  75)         assertThrows(UserNotFoundException.class, () -> userService.loginUser(loginRequest));
+6089334e (sashedab       2023-05-15 15:03:51 +0530  76)     }
+6089334e (sashedab       2023-05-15 15:03:51 +0530  77) 
+6089334e (sashedab       2023-05-15 15:03:51 +0530  78) 	@Test
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  79) 	void testGetAllUsers() {
+6089334e (sashedab       2023-05-15 15:03:51 +0530  80) 		List<UserModel> users = new ArrayList<>();
+6089334e (sashedab       2023-05-15 15:03:51 +0530  81) 		users.add(user);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  82) 		when(userRepository.findAll()).thenReturn(users);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  83) 		List<UserModel> result = userService.getAllUsers();
+6089334e (sashedab       2023-05-15 15:03:51 +0530  84) 		assertNotNull(result);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  85) 		assertEquals(users, result);
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530  86) 	}
+6089334e (sashedab       2023-05-15 15:03:51 +0530  87) 
+6089334e (sashedab       2023-05-15 15:03:51 +0530  88) 	@Test
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  89)      void testGetCustomerByUserId_ExistingUser() {
+6089334e (sashedab       2023-05-15 15:03:51 +0530  90)         when(userRepository.findById(user.getUserId())).thenReturn(Optional.of(user));
+6089334e (sashedab       2023-05-15 15:03:51 +0530  91)         CustomerModel result = userService.getCustomerByUserId(user.getUserId());
+6089334e (sashedab       2023-05-15 15:03:51 +0530  92)         assertNotNull(result);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  93)         assertEquals(customer, result);
+6089334e (sashedab       2023-05-15 15:03:51 +0530  94)     }
+6089334e (sashedab       2023-05-15 15:03:51 +0530  95) 
+6089334e (sashedab       2023-05-15 15:03:51 +0530  96) 	@Test
+313d414d (Anirudh Burman 2023-06-05 08:34:34 +0530  97)      void testGetCustomerByUserId_NonExistingUser() {
+6089334e (sashedab       2023-05-15 15:03:51 +0530  98)         when(userRepository.findById(user.getUserId())).thenReturn(Optional.empty());
+6089334e (sashedab       2023-05-15 15:03:51 +0530  99)         CustomerModel result = userService.getCustomerByUserId(user.getUserId());
+6089334e (sashedab       2023-05-15 15:03:51 +0530 100)         assertNull(result);
+6089334e (sashedab       2023-05-15 15:03:51 +0530 101)     }
+8f8b38f2 (anirudhburman  2023-05-15 14:05:11 +0530 102) }

@@ -14,7 +14,7 @@ import com.grocery.model.OrderModel;
 import com.grocery.service.OrderService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 public class OrderController {
 
 	@Autowired
