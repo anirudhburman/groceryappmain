@@ -10,3 +10,19 @@
 2023-05-22 02:12:53,762 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-9] Customer exists in DB
 2023-05-22 02:13:03,364 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-4] Customer exists in DB
 2023-05-22 02:28:34,485 INFO c.g.s.CustomerServiceImpl [http-nio-8080-exec-9] Customer exists in DB
+2023-06-02 17:12:28,723 INFO c.g.c.UserControllerTests [main] Starting UserControllerTests using Java 17.0.5 with PID 27060 (started by ANIBARMA in C:\Users\ANIBARMA\eclipse-workspace\maingroceryapp)
+2023-06-02 17:12:28,739 DEBUG c.g.c.UserControllerTests [main] Running with Spring Boot v3.0.6, Spring v6.0.8
+2023-06-02 17:12:28,741 INFO c.g.c.UserControllerTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-02 17:12:38,101 INFO c.g.c.UserControllerTests [main] Started UserControllerTests in 9.918 seconds (process running for 13.339)
+2023-06-02 17:13:48,773 INFO c.g.s.AddressServiceTests [main] Starting AddressServiceTests using Java 17.0.5 with PID 13304 (started by ANIBARMA in C:\Users\ANIBARMA\eclipse-workspace\maingroceryapp)
+2023-06-02 17:13:48,793 DEBUG c.g.s.AddressServiceTests [main] Running with Spring Boot v3.0.6, Spring v6.0.8
+2023-06-02 17:13:48,795 INFO c.g.s.AddressServiceTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-02 17:13:56,655 INFO c.g.s.AddressServiceTests [main] Started AddressServiceTests in 8.854 seconds (process running for 11.096)
+2023-06-02 17:14:10,672 INFO c.g.s.UserServiceTests [main] Starting UserServiceTests using Java 17.0.5 with PID 21236 (started by ANIBARMA in C:\Users\ANIBARMA\eclipse-workspace\maingroceryapp)
+2023-06-02 17:14:10,684 DEBUG c.g.s.UserServiceTests [main] Running with Spring Boot v3.0.6, Spring v6.0.8
+2023-06-02 17:14:10,686 INFO c.g.s.UserServiceTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-02 17:14:18,920 INFO c.g.s.UserServiceTests [main] Started UserServiceTests in 8.724 seconds (process running for 11.113)
+2023-06-02 17:14:52,632 INFO c.g.s.AddressServiceTests [main] Starting AddressServiceTests using Java 17.0.5 with PID 25884 (started by ANIBARMA in C:\Users\ANIBARMA\eclipse-workspace\maingroceryapp)
+2023-06-02 17:14:52,644 DEBUG c.g.s.AddressServiceTests [main] Running with Spring Boot v3.0.6, Spring v6.0.8
+2023-06-02 17:14:52,646 INFO c.g.s.AddressServiceTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-02 17:14:59,909 INFO c.g.s.AddressServiceTests [main] Started AddressServiceTests in 7.804 seconds (process running for 10.388)

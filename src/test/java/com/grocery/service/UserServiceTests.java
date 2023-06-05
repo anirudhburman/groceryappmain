@@ -20,7 +20,7 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class UserServiceTests {
+class UserServiceTests {
 
 	@Mock
 	private UserRepository userRepository;
@@ -33,7 +33,7 @@ public class UserServiceTests {
 	private CustomerModel customer;
 
 	@BeforeEach
-	public void setup() {
+	void setup() {
 		user = new UserModel();
 		user.setUserId(1);
 		user.setUserName("testuser");
@@ -47,7 +47,7 @@ public class UserServiceTests {
 	}
 
 	@Test
-    public void testAddUser() {
+     void testAddUser() {
         when(userRepository.save(any(UserModel.class))).thenReturn(user);
         UserModel result = userService.addUser(user);
         assertNotNull(result);
@@ -55,7 +55,7 @@ public class UserServiceTests {
     }
 
 	@Test
-    public void testLoginUser_ValidCredentials() throws UserNotFoundException {
+     void testLoginUser_ValidCredentials() throws UserNotFoundException {
         when(userRepository.findByUserName(loginRequest.getUserName())).thenReturn(Optional.of(user));
         UserModel result = userService.loginUser(loginRequest);
         assertNotNull(result);
@@ -63,20 +63,20 @@ public class UserServiceTests {
     }
 
 	@Test
-	public void testLoginUser_IncorrectPassword() {
+	void testLoginUser_IncorrectPassword() {
 		user.setUserPassword("incorrectpassword");
 		when(userRepository.findByUserName(loginRequest.getUserName())).thenReturn(Optional.of(user));
 		assertThrows(UserNotFoundException.class, () -> userService.loginUser(loginRequest));
 	}
 
 	@Test
-    public void testLoginUser_UserNameNotFound() {
+     void testLoginUser_UserNameNotFound() {
         when(userRepository.findByUserName(loginRequest.getUserName())).thenReturn(Optional.empty());
         assertThrows(UserNotFoundException.class, () -> userService.loginUser(loginRequest));
     }
 
 	@Test
-	public void testGetAllUsers() {
+	void testGetAllUsers() {
 		List<UserModel> users = new ArrayList<>();
 		users.add(user);
 		when(userRepository.findAll()).thenReturn(users);
@@ -86,7 +86,7 @@ public class UserServiceTests {
 	}
 
 	@Test
-    public void testGetCustomerByUserId_ExistingUser() {
+     void testGetCustomerByUserId_ExistingUser() {
         when(userRepository.findById(user.getUserId())).thenReturn(Optional.of(user));
         CustomerModel result = userService.getCustomerByUserId(user.getUserId());
         assertNotNull(result);
@@ -94,7 +94,7 @@ public class UserServiceTests {
     }
 
 	@Test
-    public void testGetCustomerByUserId_NonExistingUser() {
+     void testGetCustomerByUserId_NonExistingUser() {
         when(userRepository.findById(user.getUserId())).thenReturn(Optional.empty());
         CustomerModel result = userService.getCustomerByUserId(user.getUserId());
         assertNull(result);

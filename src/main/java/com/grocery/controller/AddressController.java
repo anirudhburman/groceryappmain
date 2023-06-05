@@ -17,7 +17,7 @@ import com.grocery.model.CustomerModel;
 import com.grocery.service.AddressService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class AddressController {
 
 	@Autowired
