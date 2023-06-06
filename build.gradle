@@ -25,6 +25,8 @@ sourceSets {
     }
 }
 
+//Arijit
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
